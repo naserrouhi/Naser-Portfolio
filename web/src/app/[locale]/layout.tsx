@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 import { Providers } from "@/components/providers";
 import { WorkbenchShell } from "@/components/workbench-shell";
@@ -111,15 +112,10 @@ export default async function LocaleLayout({
       style={{ colorScheme: "dark" }}
       suppressHydrationWarning
     >
-      <head>
-        <script
-          id="theme-initializer"
-          dangerouslySetInnerHTML={{
-            __html: "try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.className=t;document.documentElement.style.colorScheme=t}}catch{}",
-          }}
-        />
-      </head>
       <body>
+        <Script id="theme-initializer" strategy="beforeInteractive">
+          {"try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.className=t;document.documentElement.style.colorScheme=t}}catch{}"}
+        </Script>
         <Providers initialTheme="dark">
           <WorkbenchShell dictionary={dictionary} locale={locale} portfolio={portfolio}>
             {children}
