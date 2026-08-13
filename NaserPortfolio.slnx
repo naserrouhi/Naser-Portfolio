@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NaserPortfolio.Api/NaserPortfolio.Api.csproj" />
+    <Project Path="src/NaserPortfolio.Application/NaserPortfolio.Application.csproj" />
+    <Project Path="src/NaserPortfolio.Domain/NaserPortfolio.Domain.csproj" />
+    <Project Path="src/NaserPortfolio.Infrastructure/NaserPortfolio.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NaserPortfolio.AcceptanceTests/NaserPortfolio.AcceptanceTests.csproj" />
+    <Project Path="tests/NaserPortfolio.Api.IntegrationTests/NaserPortfolio.Api.IntegrationTests.csproj" />
+    <Project Path="tests/NaserPortfolio.Application.Tests/NaserPortfolio.Application.Tests.csproj" />
+    <Project Path="tests/NaserPortfolio.Domain.Tests/NaserPortfolio.Domain.Tests.csproj" />
+    <Project Path="tests/NaserPortfolio.Infrastructure.Tests/NaserPortfolio.Infrastructure.Tests.csproj" />
+  </Folder>
+</Solution>

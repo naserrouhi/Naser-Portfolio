@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 193 193" role="img" aria-label="Visual Studio 2022">
+  <defs>
+    <linearGradient id="vs-a" x1="151.642" y1="8.271" x2="20.614" y2="140.148" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7252aa"/><stop offset="1" stop-color="#7252aa"/>
+    </linearGradient>
+    <linearGradient id="vs-b" x1="24.815" y1="40.437" x2="147.966" y2="178.293" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ae7fe2"/><stop offset="1" stop-color="#9a70d4"/>
+    </linearGradient>
+    <linearGradient id="vs-c" x1="160.457" y1="5.936" x2="160.457" y2="183.367" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d59dff"/><stop offset="1" stop-color="#c18ef1"/>
+    </linearGradient>
+  </defs>
+  <path d="M40.621 157.524 11.213 135.467a7.36 7.36 0 0 1-2.941-5.881V63.414a7.36 7.36 0 0 1 2.941-5.881l29.408-22.057a7.34 7.34 0 0 0-2.021 5.881v110.286a7.34 7.34 0 0 0 2.021 5.881Z" fill="#5e438f"/>
+  <path d="M181.455 38.895a7.37 7.37 0 0 0-9.153.844l-91.648 87.898-30.033 28.784a7.36 7.36 0 0 1-9.999 1.103l-29.409-22.057a7.36 7.36 0 0 0 9.997-1.103l59.444-69 46.946-54.52a7.36 7.36 0 0 1 9.631-1.359l44.224 29.41Z" fill="url(#vs-a)"/>
+  <path d="m181.455 154.105-44.114 29.411a7.36 7.36 0 0 1-9.666-1.324l-47.021-54.555-59.444-69.04a7.36 7.36 0 0 0-9.997-1.064l29.409-22.057a7.36 7.36 0 0 1 9.999 1.103l121.681 116.683a7.37 7.37 0 0 0 9.153.843Z" fill="url(#vs-b)"/>
+  <path d="M184.729 45.032v102.936a7.36 7.36 0 0 1-3.273 6.137l-44.115 29.41a7.36 7.36 0 0 0 3.273-6.14V15.625a7.36 7.36 0 0 0-3.383-6.14l44.225 29.41a7.36 7.36 0 0 1 3.273 6.137Z" fill="url(#vs-c)"/>
+</svg>

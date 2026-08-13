@@ -1,0 +1,15 @@
+.git
+.github
+.vs
+**/bin
+**/obj
+**/node_modules
+**/.next
+**/coverage
+**/TestResults
+**/playwright-report
+**/test-results
+*.user
+*.suo
+.env*
+

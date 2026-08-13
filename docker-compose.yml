@@ -1,0 +1,33 @@
+name: naser-portfolio
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: src/NaserPortfolio.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_HTTP_PORTS: 8080
+      Cors__AllowedOrigins__0: ${CORS_ALLOWED_ORIGIN:-http://localhost:3000}
+    ports:
+      - "5100:8080"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: web
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+        SITE_LAST_MODIFIED: ${SITE_LAST_MODIFIED:-}
+    environment:
+      API_INTERNAL_URL: http://api:8080
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+      GOOGLE_SITE_VERIFICATION: ${GOOGLE_SITE_VERIFICATION:-}
+      SITE_LAST_MODIFIED: ${SITE_LAST_MODIFIED:-}
+      NODE_ENV: production
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

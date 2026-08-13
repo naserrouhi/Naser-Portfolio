@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --chrome: #f1f1f3;
+  --canvas: #ffffff;
+  --panel: #f7f7f8;
+  --raised: #eeeeF1;
+  --selected: #e9e6f6;
+  --border: #d3d3d9;
+  --splitter: #c6c2d3;
+  --text-primary: #17181a;
+  --text: #292b2f;
+  --text-muted: #5f6368;
+  --accent: #5b43b4;
+  --accent-strong: #49329b;
+  --focus: #5b43b4;
+  --link: #345fc7;
+  --syntax-keyword: #7a3e8e;
+  --syntax-type: #006b5f;
+  --syntax-name: #005a9c;
+  --syntax-string: #9a3412;
+  --syntax-comment: #427a2c;
+  --success: #287a3e;
+  color-scheme: light;
+}
+
+.dark {
+  --chrome: #1c1c1c;
+  --canvas: #1f1f1f;
+  --panel: #292929;
+  --raised: #303030;
+  --selected: #353535;
+  --border: #3d3d42;
+  --splitter: #4b4659;
+  --text-primary: #f1f1f1;
+  --text: #d4d4d4;
+  --text-muted: #a6a6a6;
+  --accent: #8b73e6;
+  --accent-strong: #745bd2;
+  --focus: #c4b5fd;
+  --link: #78beff;
+  --syntax-keyword: #d7a0df;
+  --syntax-type: #69d5c5;
+  --syntax-name: #78beff;
+  --syntax-string: #e3a68a;
+  --syntax-comment: #89b875;
+  --success: #89d185;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-chrome: var(--chrome);
+  --color-canvas: var(--canvas);
+  --color-panel: var(--panel);
+  --color-raised: var(--raised);
+  --color-selected: var(--selected);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-focus: var(--focus);
+  --color-link: var(--link);
+  --font-sans: "Segoe UI Variable", "Noto Sans", "Vazirmatn", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "JetBrains Mono", "Noto Sans Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: "Segoe UI Variable", "Noto Sans", "Vazirmatn", system-ui, sans-serif;
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Motion follows Visual Studio's quick, purposeful feedback: docked surfaces
+   travel only a few pixels and menus settle without springy website effects. */
+.dialog-overlay[data-state="open"] {
+  animation: overlay-enter 160ms ease-out both;
+}
+
+.dialog-overlay[data-state="closed"] {
+  animation: overlay-exit 100ms ease-in both;
+}
+
+.dialog-surface[data-state="open"] {
+  animation: dialog-enter 190ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.dialog-surface[data-state="closed"] {
+  animation: dialog-exit 100ms ease-in both;
+}
+
+.sheet-surface[data-state="open"][data-side="inline-end"] {
+  animation: sheet-inline-enter 220ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.sheet-surface[data-state="closed"][data-side="inline-end"] {
+  animation: sheet-inline-exit 120ms ease-in both;
+}
+
+[dir="rtl"] .sheet-surface[data-state="open"][data-side="inline-end"] {
+  animation-name: sheet-inline-enter-rtl;
+}
+
+[dir="rtl"] .sheet-surface[data-state="closed"][data-side="inline-end"] {
+  animation-name: sheet-inline-exit-rtl;
+}
+
+.sheet-surface[data-state="open"][data-side="bottom"] {
+  animation: sheet-bottom-enter 220ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.sheet-surface[data-state="closed"][data-side="bottom"] {
+  animation: sheet-bottom-exit 120ms ease-in both;
+}
+
+.dropdown-surface[data-state="open"] {
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+  animation: menu-enter 140ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.dropdown-surface[data-state="closed"] {
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+  animation: menu-exit 90ms ease-in both;
+}
+
+@keyframes overlay-enter { from { opacity: 0; } }
+@keyframes overlay-exit { to { opacity: 0; } }
+@keyframes dialog-enter { from { opacity: 0; translate: 0 7px; scale: .985; } }
+@keyframes dialog-exit { to { opacity: 0; translate: 0 4px; scale: .99; } }
+@keyframes sheet-inline-enter { from { translate: 18px 0; } }
+@keyframes sheet-inline-exit { to { translate: 18px 0; } }
+@keyframes sheet-inline-enter-rtl { from { translate: -18px 0; } }
+@keyframes sheet-inline-exit-rtl { to { translate: -18px 0; } }
+@keyframes sheet-bottom-enter { from { translate: 0 18px; } }
+@keyframes sheet-bottom-exit { to { translate: 0 18px; } }
+@keyframes menu-enter { from { opacity: 0; scale: .975; translate: 0 -2px; } }
+@keyframes menu-exit { to { opacity: 0; scale: .985; } }
+
+* {
+  scrollbar-color: color-mix(in srgb, var(--text-muted) 50%, transparent) transparent;
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .dialog-overlay,
+  .dialog-surface,
+  .sheet-surface,
+  .dropdown-surface {
+    animation: none !important;
+    translate: none !important;
+    scale: none !important;
+  }
+}
